@@ -7,10 +7,12 @@
     <groupId>com.study</groupId>
     <artifactId>parent</artifactId>
     <version>1.0</version>
+    <packaging>pom</packaging>
 
 <modules>
     <module>com.study.cloud.eurekaserver</module>
     <module>com.study.cloud.daoserver</module>
     <module>com.study.cloud.userserver</module>
+    <module>com.study.cloud.webflux</module>
 </modules>
 </project>
