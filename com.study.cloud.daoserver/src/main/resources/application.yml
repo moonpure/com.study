@@ -1,0 +1,10 @@
+server:
+  port: 8762
+spring:
+  application:
+    name: daoserver
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8100/eureka/
+

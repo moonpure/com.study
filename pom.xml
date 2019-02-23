@@ -10,5 +10,7 @@
 
 <modules>
     <module>com.study.cloud.eurekaserver</module>
+    <module>com.study.cloud.daoserver</module>
+    <module>com.study.cloud.userserver</module>
 </modules>
 </project>
