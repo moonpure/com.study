@@ -8,5 +8,7 @@
     <artifactId>parent</artifactId>
     <version>1.0</version>
 
-
+<modules>
+    <module>com.study.cloud.eurekaserver</module>
+</modules>
 </project>
