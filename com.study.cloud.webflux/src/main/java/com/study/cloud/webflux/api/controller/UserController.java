@@ -17,12 +17,14 @@ public class UserController {
     UserSerivceImpl userSerivce;
     @PostMapping("/query")
     public Flux<UserApiModel>query(UserApiModel model) {
+        //Flux.create(p->p.s)
         return Flux.fromIterable(userSerivce.query(model));
     }
     @PostMapping("/queryone")
     public Mono<UserApiModel>queryOne(UserApiModel model) {
 
-        return Mono.justOrEmpty(userSerivce.queryOne(model));
+        return Mono.create(p->p.success(userSerivce.queryOne(model)));
+       // return Mono.justOrEmpty(userSerivce.queryOne(model));
     }
     @GetMapping("/queryid")
     public Mono<UserApiModel>queryId(Integer id) {

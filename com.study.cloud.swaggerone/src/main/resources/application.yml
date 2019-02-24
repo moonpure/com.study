@@ -1,0 +1,13 @@
+server:
+  port: 8781
+spring:
+  application:
+    name: swaggerserveront
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8100/eureka/
+
+

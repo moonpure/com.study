@@ -14,5 +14,6 @@
     <module>com.study.cloud.daoserver</module>
     <module>com.study.cloud.userserver</module>
     <module>com.study.cloud.webflux</module>
+    <module>com.study.cloud.swaggerone</module>
 </modules>
 </project>
