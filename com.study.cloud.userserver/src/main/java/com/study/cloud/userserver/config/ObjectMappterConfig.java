@@ -24,23 +24,19 @@ public class ObjectMappterConfig {
     @Bean
     public ObjectMapper serializingObjectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-        objectMapper.registerModule(new JavaTimeModule());
-        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-        //反序列化的时候如果多了其他属性,不抛出异常
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
-        //如果是空对象的时候,不抛异常
-        objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-        //两种方法
-
-        objectMapper = new ObjectMapper();
+        //自定义序列化格式
         JavaTimeModule timeModule = new JavaTimeModule();
         timeModule.addDeserializer(LocalDate.class, new LocalDateDeserializer(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         timeModule.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         timeModule.addSerializer(LocalDate.class, new LocalDateSerializer(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         timeModule.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+
         objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
+                //反序列化的时候如果多了其他属性,不抛出异常
+                  .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                //如果是空对象的时候,不抛异常
+                  .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
+                //如为空则不序列化
                 .setSerializationInclusion(JsonInclude.Include.NON_NULL)
                 .registerModule(timeModule)
                 .registerModule(new ParameterNamesModule())
