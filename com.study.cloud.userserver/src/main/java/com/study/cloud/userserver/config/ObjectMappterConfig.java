@@ -13,17 +13,19 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 @Configuration
 public class ObjectMappterConfig {
     @Bean
     public ObjectMapper serializingObjectMapper() {
-        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json().build();
         //自定义序列化格式
         JavaTimeModule timeModule = new JavaTimeModule();
         timeModule.addDeserializer(LocalDate.class, new LocalDateDeserializer(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
@@ -38,6 +40,8 @@ public class ObjectMappterConfig {
                   .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
                 //如为空则不序列化
                 .setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                //旧日期格式
+                .setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"))
                 .registerModule(timeModule)
                 .registerModule(new ParameterNamesModule())
                 .registerModule(new Jdk8Module());
