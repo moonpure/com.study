@@ -13,7 +13,7 @@ class UnitTestServcieImplTest extends Junit5ApplicationTests {
     @Autowired
     UnitTestServcieImpl unitTestServcie;
     @BeforeAll
-    static void setUpaa() {
+     void setUpaa() {
         int a =20;
         int b=a+1;
         System.out.println(b);
