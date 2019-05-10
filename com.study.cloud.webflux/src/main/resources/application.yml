@@ -3,8 +3,3 @@ server:
 spring:
   application:
     name: webfluxserver
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8100/eureka/
-
