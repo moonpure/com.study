@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UserControllerTest extends WebfluxApplicationTests {
 
+
     @BeforeEach
     void setUp() {
     }

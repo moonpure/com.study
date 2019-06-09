@@ -1,12 +1,12 @@
 package com.study.cloud.test.webflux.service;
 
 import com.study.cloud.test.webflux.api.model.UserApiModel;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Service
 public class UserSerivceImpl {
     public List<UserApiModel> query(UserApiModel param)
     {

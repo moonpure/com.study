@@ -2,6 +2,7 @@ package com.study.cloud.test.webflux.api.controller;
 
 import com.study.cloud.test.webflux.api.model.UserApiModel;
 import com.study.cloud.test.webflux.service.UserSerivceImpl;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("user")
+@AllArgsConstructor
 public class UserController {
     @Autowired
     UserSerivceImpl userSerivce;
