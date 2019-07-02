@@ -21,4 +21,14 @@ public class ApolloDemoServieTest {
         System.out.print(timeout);
         System.out.print(config.getProperty("url","null"));
     }
+
+    @Test
+    public void quickSort() {
+        int[] array=new int[]{25,15,30,10,50,3,5,60};
+        apolloDemoServie.QuickSort(array, 0, array.length-1);
+        for(int i=0;i<array.length;i++)
+        {
+            System.out.println((i+1)+"th:"+array[i]);
+        }
+    }
 }
