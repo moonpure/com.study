@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table width="100%" class="biaocss1g biaocssxiao" id="DataTable" border="0" cellspacing="0" cellpadding="0" v-show="ShowFlag1">
+    <thead>
+    <tr>
+        <th width="25%" style="text-align: left; padding-left: 20px;">
+            交易信息 <!--<a v-click="predicate = 'TransDate'; reverse=!reverse;TransDate=!TransDate">
+					<span v-hide="TransDate">↓</span><span v-show="TransDate">↑</span>
+					</a>--></th>
+        <th width="16%" style="text-align: right; padding-left: 20px;">
+            交易金额 <!--<a v-click="predicate = 'QAmount'; reverse=!reverse;QAmount=!QAmount">
+					<span v-show="QAmount">↓</span><span v-hide="QAmount">↑</span> </a>--></th>
+        <!--<th nowrap="" class="alignRight">存入金额 <a class="luzi"
+            v-click="predicate = 'CAmount'; reverse=!reverse;CAmount=!CAmount">
+        <span v-show="CAmount">↓</span><span v-hide="CAmount">↑</span> </a></th>-->
+        <th width="14%" style="text-align: right; padding-left: 20px;">
+            账户余额 <!--<a v-click="predicate = 'Balance'; reverse=!reverse;Balance=!Balance">
+					<span v-show="Balance">↓</span><span v-hide="Balance">↑</span> </a>--></th>
+        <th width="10%" style="padding-left: 20px;" v-show="TabNo=='0'">
+            交易渠道 <!--<a class="luzi" v-click="predicate = 'Channel'; reverse=!reverse;Channel=!Channel">
+					<span v-show="Channel">↓</span><span v-hide="Channel">↑</span> </a>--></th>
+        <th width="34%" style="text-align: left; padding-left: 20px;">
+            对方信息 <!--<a v-click="predicate = 'PayeeAc'; reverse=!reverse;PayeeAc=!PayeeAc">
+					<span v-show="PayeeAc">↓</span><span v-hide="PayeeAc">↑</span> </a>--></th>
+        <!--<th nowrap="">对方名称 <a class="luzi"
+            v-click="predicate = 'PayeeNm'; reverse=!reverse;PayeeNm=!PayeeNm">
+        <span v-show="PayeeNm">↓</span><span v-hide="PayeeNm">↑</span> </a></th>-->
+        <!--<th nowrap="">对方开户行 <a class="luzi"
+            v-click="predicate = 'PayeeOpBankNo'; reverse=!reverse;PayeeOpBankNo=!PayeeOpBankNo">
+        <span v-show="PayeeOpBankNo">↓</span><span v-hide="PayeeOpBankNo">↑</span>
+        </a></th>-->
+
+        <!--<th nowrap="">摘要 <a class="luzi"
+            v-click="predicate = 'Remark'; reverse=!reverse;Remark=!Remark">
+        <span v-show="Remark">↓</span><span v-hide="Remark">↑</span> </a></th>-->
+        <th width="1%"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="f1" v-repeat="row in pagableData.List |orderBy:predicate:reverse">
+
+        <td class="v-binding" style="text-align: left; padding-left: 20px;" v-show="row.subRemark==null">2019-05-15&nbsp;&nbsp;工资奖金 工资</td>
+
+        <td title="工资奖金 工资" class="v-binding" style="text-align: left; padding-left: 20px; display: none;" v-show="row.subRemark!=null">2019-05-15&nbsp;&nbsp;</td>
+        <td style="text-align: right; padding-left: 20px;" v-show="row.CAmount!=''">
+            转入&nbsp;<span class="main_blue v-binding">26,257.12</span></td>
+        <td style="text-align: right; padding-left: 20px; display: none;" v-show="row.QAmount!=''">
+            转出 &nbsp;<span class="ceng v-binding"></span></td>
+
+
+        <td align="right" class="v-binding" style="text-align: right;">25,126.80</td>
+        <td class="v-binding" style="padding-left: 20px;" v-hide="row.MailTag">网络银行</td>
+
+        <td title="软通动力信息技术（集团）有限公司8663 8158 0710 001" class="v-binding" style="text-align: left; padding-left: 20px;">
+            360集团(蓝信分公司) &nbsp;8663 8158 0710 001</td>
+        <td></td>
+    </tr>
+    <tr class="f1" v-repeat="row in pagableData.List |orderBy:predicate:reverse">
+
+        <td class="v-binding" style="text-align: left; padding-left: 20px;" v-show="row.subRemark==null">2019-04-15&nbsp;&nbsp;工资奖金 工资</td>
+
+        <td title="工资奖金 工资" class="Av-binding" style="text-align: left; padding-left: 20px; display: none;" v-show="row.subRemark!=null">2019-04-15&nbsp;&nbsp;</td>
+        <td style="text-align: right; padding-left: 20px;" v-show="row.CAmount!=''">
+            转入&nbsp;<span class="main_blue v-binding">26,257.12</span></td>
+        <td style="text-align: right; padding-left: 20px; display: none;" v-show="row.QAmount!=''">
+            转出 &nbsp;<span class="ceng v-binding"></span></td>
+
+
+        <td align="right" class="v-binding" style="text-align: right;">53,117.00</td>
+        <td class="v-binding" style="padding-left: 20px;" v-hide="row.MailTag">网络银行</td>
+
+        <td title="软通动力信息技术（集团）有限公司8663 8158 0710 001" class="v-binding" style="text-align: left; padding-left: 20px;">
+            360集团(蓝信分公司) &nbsp;8663 8158 0710 001</td>
+        <td></td>
+    </tr>
+    <tr class="f1" v-repeat="row in pagableData.List |orderBy:predicate:reverse">
+
+        <td class="v-binding" style="text-align: left; padding-left: 20px;" v-show="row.subRemark==null">2019-03-15&nbsp;&nbsp;工资奖金 工资</td>
+
+        <td title="工资奖金 工资" class="v-binding" style="text-align: left; padding-left: 20px; display: none;" v-show="row.subRemark!=null">2019-03-15&nbsp;&nbsp;</td>
+        <td style="text-align: right; padding-left: 20px;" v-show="row.CAmount!=''">
+            转入&nbsp;<span class="main_blue v-binding">26,257.12</span></td>
+        <td style="text-align: right; padding-left: 20px; display: none;" v-show="row.QAmount!=''">
+            转出 &nbsp;<span class="ceng v-binding"></span></td>
+
+
+        <td align="right" class="v-binding" style="text-align: right;">21,327.32</td>
+        <td class="v-binding" style="padding-left: 20px;" v-hide="row.MailTag">网络银行</td>
+
+        <td title="软通动力信息技术（集团）有限公司8663 8158 0710 001" class="v-binding" style="text-align: left; padding-left: 20px;">
+            360集团(蓝信分公司) &nbsp;8663 8158 0710 001</td>
+        <td></td>
+    </tr>
+    <tr class="f1" v-repeat="row in pagableData.List |orderBy:predicate:reverse">
+
+        <td class="v-binding" style="text-align: left; padding-left: 20px;" v-show="row.subRemark==null">2019-02-15&nbsp;&nbsp;工资奖金 工资</td>
+
+        <td title="工资奖金 工资" class="v-binding" style="text-align: left; padding-left: 20px; display: none;" v-show="row.subRemark!=null">2019-02-15&nbsp;&nbsp;</td>
+        <td style="text-align: right; padding-left: 20px;" v-show="row.CAmount!=''">
+            转入&nbsp;<span class="main_blue v-binding">26,257.12</span></td>
+        <td style="text-align: right; padding-left: 20px; display: none;" v-show="row.QAmount!=''">
+            转出 &nbsp;<span class="ceng v-binding"></span></td>
+
+
+        <td align="right" class="v-binding" style="text-align: right;">44,357.40</td>
+        <td class="v-binding" style="padding-left: 20px;" v-hide="row.MailTag">网络银行</td>
+
+        <td title="软通动力信息技术（集团）有限公司8663 8158 0710 001" class="v-binding" style="text-align: left; padding-left: 20px;">
+            360集团(蓝信分公司) &nbsp;8663 8158 0710 001</td>
+        <td></td>
+    </tr>
+  <tr class="f1" v-repeat="row in pagableData.List |orderBy:predicate:reverse">
+
+        <td class="v-binding" style="text-align: left; padding-left: 20px;" v-show="row.subRemark==null">2019-01-15&nbsp;&nbsp;工资奖金 工资</td>
+
+        <td title="工资奖金 工资" class="v-binding" style="text-align: left; padding-left: 20px; display: none;" v-show="row.subRemark!=null">2019-01-15&nbsp;&nbsp;</td>
+        <td style="text-align: right; padding-left: 20px;" v-show="row.CAmount!=''">
+            转入&nbsp;<span class="main_blue v-binding">26,257.12</span></td>
+        <td style="text-align: right; padding-left: 20px; display: none;" v-show="row.QAmount!=''">
+            转出 &nbsp;<span class="ceng v-binding"></span></td>
+
+
+        <td align="right" class="v-binding" style="text-align: right;">36,457.10</td>
+        <td class="v-binding" style="padding-left: 20px;" v-hide="row.MailTag">网络银行</td>
+
+        <td title="软通动力信息技术（集团）有限公司8663 8158 0710 001" class="v-binding" style="text-align: left; padding-left: 20px;">
+           360集团(蓝信分公司) &nbsp;8663 8158 0710 001</td>
+        <td></td>
+    </tr>
+    </tbody></table>
+
+</body>
+</html>
